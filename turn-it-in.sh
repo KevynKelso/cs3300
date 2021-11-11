@@ -6,15 +6,17 @@
 # and circleCI can use 2.7.0
 
 ./change_ruby_version.py "2.7.0" &&
+rbenv local 2.7.0
 bundle install &&
 git add . &&
 echo "Commit msg:" &&
 read commit_message &&
 git commit -m "$commit_message" &&
 git push &&
-heroku rake db:migrate &&
-git push heroku main &&
+#heroku rake db:migrate &&
+#git push heroku main &&
 ./change_ruby_version.py "2.7.3" &&
+rbenv local 2.7.3
 bundle install
 
 echo "GitHub: https://github.com/KevynKelso/cs3300"

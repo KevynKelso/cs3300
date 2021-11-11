@@ -1,6 +1,8 @@
 require 'rails_helper'
+require_relative '../support/devise'
 
 describe ProjectsController, type: :controller do
+  login_user
   context 'GET #index' do
     it 'returns a success response' do
       get :index
