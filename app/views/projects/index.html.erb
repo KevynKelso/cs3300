@@ -1,29 +1,57 @@
-<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Portfolio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+          <a class="nav-link" style="color: white" rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
+        <% end %>
+        <% if !user_signed_in? %>
+          <a class="nav-link" style="color: white" href="/users/sign_in">Sign in</a>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color: green"><%= notice %></a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-<h1>Projects</h1>
+<div style="background-image: url('/images/smoke.jpeg')">
+<div class="contentarea">
+  <button type="button" class="btn btn-primary expanding" style="margin-top: 1rem;">
+    <a style="color: white" href="/projects/new">New Project</a>
+  </button>
+  <div class="row">
+    <div class="leftcolumn">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="card" style="height: 275px; overflow: hidden;">
+        <div class="card-body">
+          <h2 class="card-title"><%= project.title %></h2>
+          <p class="card-text" style="height: 100px; overflow: scroll"><%= project.description %></p>
+          <div style="display: flex; justify-content: space-evenly;">
+            <button type="button" class="btn btn-outline-primary"><%= link_to 'Show', project %></button>
+            <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_project_path(project) %></button>
+            <button type="button" class="btn btn-outline-primary"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Project', new_project_path %>
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <h2>About Me</h2>
+        <img class="fakeimg" src="/images/Meme_Man.png" alt="Kevyn Kelso profile picture" />
+        <p style="margin-top: 1rem;">I'm baby hella cronut pabst, hoodie sunt cred poke jianbing banh mi roof party labore ipsum paleo mumblecore coloring book. Roof party aliqua chartreuse keytar raw denim thundercats adaptogen meditation. Deserunt disrupt ad 8-bit adipisicing, nostrud pinterest. 8-bit dolore iPhone brunch hoodie paleo hell of wayfarers yr eiusmod lumbersexual twee pok pok franzen. Chartreuse tousled health goth tbh, pabst ea non. Est typewriter post-ironic, YOLO intelligentsia seitan irure neutra eu shabby chic.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

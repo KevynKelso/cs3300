@@ -3,8 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 
+gem 'bootstrap', '~> 4.6.1'
+
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'jquery-rails'
+
 gem 'rails', '~> 5.2.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

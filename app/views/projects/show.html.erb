@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div style="padding: 10rem; text-align: center; background-color: yellow; height: 100%">
+  <div style="display: flex; justify-content: space-evenly;">
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+    <p class="spinning" style="transform: rotate(45deg) translate(200px);">
+      <strong>Title:</strong>
+      <%= @project.title %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+    <p id="notice"><%= notice %></p>
+    <p class="spinning" style="height: 200px; width: 300px; transform: rotate(90deg) translate(200px);">
+      <strong>Description:</strong>
+      <%= @project.description %>
+    </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+    <div class="spinning" style="transform: rotate(-45deg) translate(-200px);">
+      <%= link_to 'Edit', edit_project_path(@project) %> |
+      <%= link_to 'Back', projects_path %>
+    </div>
+  </div>
+</div>
